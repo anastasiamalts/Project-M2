@@ -1,0 +1,72 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.listbox {
+margin: 200px auto;
+width: 336px;
+min-height: 236px;
+border-radius: 10px;
+border: solid 1px #C4C4C4;
+vertical-align: middle;
+}
+.yellow-line {
+    width: 336px;
+    height: 28px;
+    background-color: #FFDC40;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.item-box-wrapper {
+    margin: 0 30px;
+}
+.sort-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inside-to-do-list-box {
+    /* display:flex; */
+    align-items: center;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+}
+.sorting {
+    width: 25px;
+    height: 15px;
+    padding-bottom: 12px;
+}
+.to-do-list-text {
+    font-size: 26px;
+    font-weight: 900;
+    text-align: center;
+    margin: 17px
+}
+.item-box {
+    margin: auto;
+    width: 286px;
+    height: 40px;
+    /* border: 1px solid #C4C4C4;
+    border-radius: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    
+}
+.item-box-text {
+    border: none;
+}
+.delete-button {
+    height: 20px;
+    width: 20px;
+}
+.add-button {
+    width: 150px;
+    height: 42px;
+    margin: 20px auto;
+}
+
+
+
