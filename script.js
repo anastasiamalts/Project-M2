@@ -3,17 +3,15 @@ const textBox = document.querySelector('.item-box')
 let order = 'desc';
 
 // добавляем новую ячейку
-function addNewItembox() {
+function addNewItembox(text) {
     let newItemBox = document.createElement('div');
     newItemBox.classList.add('item-box')
     newItemBox.innerHTML = `
 <input type="text" class="item-box-text">
 `
     itemBox.append(newItemBox)
-
-
     addDeleteButton(newItemBox);
-    // document.querySelector('input').value = text;
+    newItemBox.querySelector('input').value = typeof (text) === 'object' ? '' : text;
 }
 
 
@@ -29,8 +27,12 @@ function addDeleteButton(newItemBox) {
         event.target.src = `images /cancel_inactive.svg`
     })
     newDeleteButton.addEventListener('click', () => {
-        // как проверить сколько  itembox осталось 
-        newItemBox.remove()
+        if (document.querySelectorAll('input').length > 1) {
+            newItemBox.remove()
+        }
+        else {
+            newItemBox.querySelector('input').value = ''
+        }
     })
     newItemBox.append(newDeleteButton);
 }
@@ -61,24 +63,24 @@ function sortOrder() {
             if (a > b)
                 return -1
         })
-        addSortedItems(taskArray)
+
     }
     //сохранять как было отсортировано 
     // создать переменную, которая будет хранить состояние сортировки 
     //если в этой перменной ask, сортируем в состояние desk
     console.log(taskArray)
-    // addSortedItems(taskArray)
+    addSortedItems(taskArray)
 }
 
 function addSortedItems(array) {
-    item = document.querySelectorAll('.item-box') 
+    item = document.querySelectorAll('.item-box')
     item.forEach((element) => {
         element.remove()
     })
 
     array.forEach((text) => {
-       addNewItembox(text)
-       
+        addNewItembox(text)
+
     })
 }
 function sortButtonListeners() {
@@ -89,20 +91,20 @@ function sortButtonListeners() {
             event.target.src = `images /sort_active_down.svg`
         }
         else (
-            event.target.src = `images /sort_active_up.svg`
+            event.target.src =  `images /sort_active_up.svg`
         )
     })
     sortButton.addEventListener('mouseout', (event) => {
         if (order === 'asc') {
-            event.target.src = `images /sort_inactive_down.svg`
+            event.target.src =  `images /sort_inactive_up.svg`
         }
         else (
-            event.target.src = `images /sort_inactive_up.svg`
+            event.target.src = `images /sort_inactive_down.svg`
         )
     })
 }
 
 // sortOrder() // вызывать при нажатии кнопки
 sortButtonListeners()
-
+addNewItembox('')
 
